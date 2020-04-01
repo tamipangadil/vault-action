@@ -5092,7 +5092,7 @@ async function retrieveToken(method, client) {
             const result = await client.post(`v1/auth/github/login`, options);
             if (result && result.body && result.body.auth && result.body.auth.client_token) {
                 core.debug('✔ Vault Token has retrieved from github');
-                return result.body.auth.client_token;
+                return result.body;
             } else {
                 throw Error(`No token was retrieved with the role_id and secret_id provided.`);
             }
